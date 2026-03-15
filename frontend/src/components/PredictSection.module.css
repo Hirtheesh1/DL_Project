@@ -1,0 +1,192 @@
+.section { background: var(--bg-secondary); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── Input Panel ──────────────────────────────────────────────────── */
+.inputPanel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: 24px;
+  gap: 4px;
+}
+.tab {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.tab.active {
+  background: rgba(0,229,255,0.12);
+  color: var(--accent-cyan);
+}
+
+.hint {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.trueLabel {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+}
+.seizureText { color: var(--accent-red); font-weight: 700; }
+.normalText  { color: var(--accent-green); font-weight: 700; }
+
+.visualizerBox {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.toggleGroup {
+  display: flex;
+  background: rgba(255,255,255,0.05);
+  padding: 4px;
+  border-radius: 6px;
+  gap: 2px;
+}
+
+.miniBtn {
+  padding: 4px 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.miniBtn.active {
+  background: var(--accent-cyan);
+  color: #000;
+}
+
+
+/* Heatmap */
+.heatmapWrap { margin-top: 16px; }
+.heatmapTitle {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 2px;
+}
+.heatCell {
+  height: 14px;
+  border-radius: 2px;
+  cursor: default;
+  transition: transform 0.1s;
+}
+.heatCell:hover { transform: scale(1.3); }
+
+/* Manual panel */
+.textarea { min-height: 180px; resize: vertical; font-size: 0.82rem; line-height: 1.5; }
+.counter  { font-size: 0.78rem; color: var(--text-muted); margin-top: 8px; text-align: right; }
+
+/* ── Result Panel ─────────────────────────────────────────────────── */
+.resultPanel {
+  position: sticky;
+  top: 88px;
+}
+
+.resultCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border-top: 3px solid var(--rc);
+  animation: fadeInUp 0.5s ease;
+}
+.resultTop {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.ringWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.ring { overflow: visible; }
+.details { margin-top: 8px; }
+
+.emptyResult {
+  background: var(--bg-card);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 60px 32px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.emptyIcon { font-size: 3rem; margin-bottom: 16px; }
+
+.uploadPanel { min-height: 220px; }
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 20px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: rgba(255,255,255,0.02);
+}
+
+.dropzone:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0,229,255,0.05);
+  transform: translateY(-2px);
+}
+
+.dropLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.dropLabel strong {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+@media(max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .resultPanel { position: static; }
+  .heatmap { grid-template-columns: repeat(12, 1fr); }
+}
