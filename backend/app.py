@@ -43,9 +43,9 @@ def load_resources():
     try:
         import tensorflow as tf
         model = tf.keras.models.load_model(MODEL_PATH)
-        print("✅  Model loaded from", MODEL_PATH)
+        print("Model loaded from", MODEL_PATH)
     except Exception as exc:
-        print(f"⚠️  Could not load model: {exc}")
+        print(f"Could not load model: {exc}")
         model = None
 
 load_resources()
